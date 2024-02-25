@@ -207,7 +207,8 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
             date: {
                 type: Object,
                 value: () => {
-                    var d = new Date();
+                    var newD = new Date();
+                    var d = new Date(newD.getTime() + newD.getTimezoneOffset() * 60000);
                     return {
                         year: d.getFullYear(),
                         month: d.getMonth() + 1,
@@ -344,6 +345,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
         this.yearList = [];
 
         var d = new Date();
+        d = new Date(d.getTime() + d.getTimezoneOffset() * 60000);
         var minYear = d.getFullYear() - this.minYear;
         var maxYear = d.getFullYear() + this.maxYear;
 
@@ -403,6 +405,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
     _checkChosen() {
         if (this.chosen !== "" && this.chosen !== undefined) {
             var date = new Date(this.chosen);
+            date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
             this.showDate.year = date.getFullYear();
 
             this.date = {
@@ -421,6 +424,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
 
         var dataDate = e.target.getAttribute("data-date");
         var dateObj = new Date(dataDate);
+        dateObj = new Date(dateObj.getTime() + dateObj.getTimezoneOffset() * 60000);
 
         this.chosen = dataDate;
         this.showDate.year = dateObj.getFullYear();
@@ -435,6 +439,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
 
     _chosenHandler(e) {
         var chosenDate = new Date(e);
+        chosenDate = new Date(chosenDate.getTime() + chosenDate.getTimezoneOffset() * 60000);
         var chosenMonth = chosenDate.getMonth();
 
         if (chosenMonth == this.date.date.getMonth()) {
@@ -524,7 +529,23 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
     }
 
     _dateChanged(newDate, oldDate) {
+        console.log(newDate);
+        // if (newDate) {
+        //     newDate.date = new Date(newDate.date.getTime() + newDate.date.getTimezoneOffset() * 60000);
+        //     newDate.month = newDate.date.getMonth() + 1;
+        //     newDate.year = newDate.date.getFullYear();
+        //     newDate.day = newDate.date.getDate();
+        // }
+
+        // if (oldDate) {
+        //     oldDate.date = new Date(oldDate.date.getTime() + oldDate.date.getTimezoneOffset() * 60000);
+        //     oldDate.month = oldDate.date.getMonth() + 1;
+        //     oldDate.year = oldDate.date.getFullYear();
+        //     oldDate.day = oldDate.date.getDate();
+        // }
+
         var date = new Date();
+        date = new Date(date.getTime() + date.getTimezoneOffset() * 60000)
         var month = parseInt(newDate.month) || 1;
         var year = parseInt(newDate.year) || date.getFullYear();
         var day = parseInt(newDate.day) || 1;
@@ -559,6 +580,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
 
     goToCurrentDate(e) {
         var today = new Date();
+        today = new Date(today.getTime() + today.getTimezoneOffset() * 60000);
 
         this.date = {
             date: today,
@@ -576,6 +598,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
 
     _initCalandar(month, year) {
         var today = new Date();
+        today = new Date(today.getTime() + today.getTimezoneOffset() * 60000);
         var thisDay = today.getDate();
         var thisMonth = today.getMonth() + 1;
         var dayOfMonthStart = new Date(year, month, 1).getDay() == 0 ? 7 : new Date(year, month, 1).getDay(); // which day the month starts (0 - 6)
@@ -678,6 +701,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
                                 this.dayLabels.forEach((labDay, d) => {
                                     if (disDay === labDay) {
                                         var date = new Date();
+                                        date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
                                         date.setDate(d);
                                         date.setMonth(month);
 
@@ -736,7 +760,8 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
     // get days number of each month
     // The month passed in is 1 for January, 2 for February and so on
     _numberOfDays(month, year) {
-        return new Date(year, month, 0).getDate();
+        var date = new Date(year, month, 0);
+        return new Date(date.getTime() + date.getTimezoneOffset() * 60000).getDate();
     }
 
     // modify each day with 2 digit number and add attributes
@@ -760,6 +785,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
 
         for (var i = 0; i <= monthDays; i++) {
             var date = new Date(year, month, i, 0);
+            date = new Date(date.getTime() + date.getTimezoneOffset() * 60000);
             if (date.getDay() == day) {
                 disDays.push(date);
             }
@@ -780,6 +806,7 @@ class mpCalendar extends GestureEventListeners(PolymerElement) {
 
     _findAllEvents(events) {
         var today = new Date();
+        today = new Date(today.getTime() + today.getTimezoneOffset() * 60000);
         var dd = (today.getDate() < 10 ? '0' : '') + today.getDate();
         var mm = (today.getMonth() < 10 ? '0' : '') + (today.getMonth() + 1);
         var isoToday = (today.getFullYear() + "-" + mm + "-" + dd);
