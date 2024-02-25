@@ -1,41 +1,23 @@
 {
-    "description": "mp calendar is a web components, providing calendar date functionality and events support, build with Polymer 3.0",
-    "keywords": [
-        "mpachnis",
-        "calendar",
-        "events",
-        "polymer",
-        "web-components",
-        "web-component"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/mpachnis/mp-calendar.git"
-    },
-    "homepage": "https://github.com/mpachnis/mp-calendar",
-    "name": "@mpachnis/mp-calendar",
-    "version": "3.1.1",
-    "author": "Minas Pachnis <minas@bugeffect.com>",
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/mpachnis/mp-calendar/issues"
-    },
-    "publishConfig": {
-        "access": "public"
-    },
-    "devDependencies": {
-        "polymer-cli": "^1.9.8",
-        "wct-browser-legacy": "^1.0.1",
-        "@polymer/iron-test-helpers": "^3.0.0",
-        "@polymer/iron-component-page": "^4.0.0",
-        "@polymer/iron-demo-helpers": "^3.0.0",
-        "@webcomponents/webcomponentsjs": "^2.2.0"
-    },
-    "scripts": {
-        "serve": "polymer serve"
-    },
-    "main": "mp-calendar.js",
-    "dependencies": {
-        "@polymer/polymer": "^3.0.0"
-    }
+  "name": "mp-calendar-2",
+  "version": "1.0.2",
+  "description": "",
+  "keywords": [],
+  "author": "Slobodan Gajic",
+  "license": "ISC",
+  "devDependencies": {
+    "polymer-cli": "^1.9.8",
+    "wct-browser-legacy": "^1.0.1",
+    "@polymer/iron-test-helpers": "^3.0.0",
+    "@polymer/iron-component-page": "^4.0.0",
+    "@polymer/iron-demo-helpers": "^3.0.0",
+    "@webcomponents/webcomponentsjs": "^2.2.0"
+  },
+  "scripts": {
+    "serve": "polymer serve"
+  },
+  "main": "mp-calendar.js",
+  "dependencies": {
+    "@polymer/polymer": "^3.0.0"
+  }
 }
