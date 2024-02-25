@@ -2,6 +2,7 @@
 [![Published on Vaadin  Directory](https://img.shields.io/badge/Vaadin%20Directory-published-00b4f0.svg)](https://vaadin.com/directory/component/mpachnismp-calendar) [![Stars on vaadin.com/directory](https://img.shields.io/vaadin-directory/star/mpachnismp-calendar.svg)](https://vaadin.com/directory/component/mpachnismp-calendar)
 
 ## &lt;mp-calendar&gt;
+This is a fork of the original mp-calendar as that project hasn't been maintained anymore.
 mp-calendar is a web component, providing calendar date functionality and events support, build with Polymer 3.0. For quick navigation between month and year, you can select one from the list.
 You can get previous polymer version, 1.x or 2.x, by selecting different branch.
 
